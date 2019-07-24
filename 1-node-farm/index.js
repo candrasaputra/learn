@@ -24,34 +24,42 @@ console.log("File written!") */
       console.log(data3);
 
       fs.writeFile("./txt/final.txt", `${data2}\n${data3}`, "utf-8", err => {
-        console.log("Your file has been written");
-      });
+          console.log("Your file has been written");
+        });
     });
-  });
+});
 });
 console.log("will read file!");
- */
+*/
 
 ////////////////////////////////////////
 /// SERVER
 
-const server = http.createServer((req, res) => {
-  const pathName = req.url;
+const data = fs.readFileSync(`${__dirname}/dev-data/data.json`, 'utf-8');
+const dataObj = JSON.parse(data);
 
-  if (pathName === "/" || pathName === "/overview") {
-    res.end("This is OVERVIEW");
-  } else if (pathName === "/product") {
-    res.end("This is PRODUCT");
-  } else {
-    // make status response
-    res.writeHead(404, {
-      "Content-type": "text/html",
-      "my-own-header": "Hello-World"
-    });
-  }
-  res.end("<h1>Page not found!</h1>");
+const server = http.createServer((req, res) => {
+    const pathName = req.url;
+
+    if (pathName === "/" || pathName === "/overview") {
+        res.end("This is OVERVIEW");
+    } else if (pathName === "/product") {
+        res.end("This is PRODUCT");
+    } else if (pathName === '/api') {
+        res.writeHead(200, {
+            'Content-type': 'application/json'
+        });
+        res.end(data);
+    } else {
+        // make status response
+        res.writeHead(404, {
+            "Content-type": "text/html",
+            "my-own-header": "Hello-World"
+        });
+        res.end("<h1>Page not found!</h1>");
+    }
 });
 
 server.listen(8000, "127.0.0.1", () => {
-  console.log("Listening too requests on port 8000");
+    console.log("Listening too requests on port 8000");
 });
