@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "game",
+    "name": "Snakes and ladders",
     "slug": "game",
     "privacy": "public",
     "sdkVersion": "35.0.0",
