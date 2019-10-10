@@ -4,6 +4,8 @@ import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import HomeScreen from './screens/HomeScreen';
 import PlayScreen from './screens/PlayScreen';
 import EndScreen from './screens/EndScreen';
+import { Provider } from 'react-redux'
+import store from './store'
 
 function App() {
   return (
@@ -13,13 +15,21 @@ function App() {
   );
 }
 
-export default createAppContainer(createSwitchNavigator(
+const SwitchNavigation = createAppContainer(createSwitchNavigator(
   {
     Home: HomeScreen,
     Play: PlayScreen,
     End: EndScreen,
   }
 ));
+
+export default () => {
+  return (
+    <Provider store={store}>
+      <SwitchNavigation />
+    </Provider>
+  )
+}
 
 const styles = StyleSheet.create({
   container: {

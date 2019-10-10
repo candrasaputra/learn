@@ -23,7 +23,7 @@ Dan berikut adalah kriteria yang sifatnya tambahan:
 
 ![Snakes and Ladders Board](./board.png)
 
-Buatlah sebuah board kosong yang memiliki ukuran 5x5 dan berikan label angka di setiap box-nya (urutan angka wajib mengikuti contoh gambar di atas).Bisa dimulai dengan membuat 3 screens dan board dengan data dummy di local state. Dan pastikan navigasi antar screen sudah berjalan lancar.
+Buatlah sebuah board kosong yang memiliki ukuran 5x5 dan berikan label angka di setiap box-nya (urutan angka wajib mengikuti contoh gambar di atas). Bisa dimulai dengan membuat 3 screens dan board dengan data dummy di local state. Dan pastikan navigasi antar screen sudah berjalan lancar.
 Kemudian lanjutkan dengan membuat komponen utama game berupa:
 - Board Snakes and Ladders
 - Definisikan beberapa state dari game
